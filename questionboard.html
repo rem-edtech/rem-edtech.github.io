@@ -1048,7 +1048,10 @@ function detectScript(t) {
 }
 
 // ── TRANSLATE ──────────────────────────────────────────────────────────────────
+const translating = new Set();
 async function translateQ(q) {
+  if (translating.has(q.id)) return;
+  translating.add(q.id);
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -1086,7 +1089,8 @@ Student question: ${q.text}` }]
         saveLocal(); renderStudentFeed(); if (teacherIn) renderTeacherDash();
       }
     }
-  } catch(e) { console.warn('Translation error:', e); }
+   } catch(e) { console.warn('Translation error:', e); }
+  finally { translating.delete(q.id); }
 }
 
 // ── STUDENT FEED ───────────────────────────────────────────────────────────────
