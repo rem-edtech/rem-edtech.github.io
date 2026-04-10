@@ -1060,7 +1060,7 @@ async function translateQ(q) {
       },
       body: JSON.stringify({
         model: 'claude-haiku-4-5',
-        max_tokens: 300,
+        max_tokens: 1024,
         messages: [{ role: 'user', content:
           `Detect the language of this student question and translate to English if not already English.
 Respond ONLY in this exact JSON (no markdown):
@@ -1324,3 +1324,4 @@ renderStudentFeed();
 </script>
 </body>
 </html>
+
