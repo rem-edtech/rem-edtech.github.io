@@ -13,16 +13,15 @@
     from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
 
   // ── PASTE YOUR FIREBASE CONFIG HERE ──────────────────────────────────────
-  
-const firebaseConfig = {
-  apiKey: "AIzaSyBdRn2IHkfA7dCsaS0N93V9030K6q0gA9M",
-  authDomain: "questionboard-translator.firebaseapp.com",
-  databaseURL: "https://questionboard-translator-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "questionboard-translator",
-  storageBucket: "questionboard-translator.firebasestorage.app",
-  messagingSenderId: "259705766545",
-  appId: "1:259705766545:web:488a31577a83539d82b530"
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdRn2IHkfA7dCsaS0N93V9030K6q0gA9M",
+    authDomain: "questionboard-translator.firebaseapp.com",
+    databaseURL: "https://questionboard-translator-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "questionboard-translator",
+    storageBucket: "questionboard-translator.firebasestorage.app",
+    messagingSenderId: "259705766545",
+    appId: "1:259705766545:web:488a31577a83539d82b530"
+  };
   // ─────────────────────────────────────────────────────────────────────────
 
   let app, db, qRef, ready = false;
@@ -879,7 +878,7 @@ main { max-width: 860px; margin: 0 auto; padding: 40px 24px 72px; }
           onkeydown="if(event.key==='Enter')doLogin()">
         <button class="login-btn" onclick="doLogin()">Enter Dashboard</button>
         <div class="login-err" id="login-err">Incorrect password — try again.</div>
-        <div class="pw-hint">Default password: <strong>teacher123</strong></div>
+        
       </div>
     </div>
 
@@ -1060,7 +1059,7 @@ async function translateQ(q) {
         'anthropic-dangerous-direct-browser-access': 'true',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        model: 'claude-haiku-4-5',
         max_tokens: 300,
         messages: [{ role: 'user', content:
           `Detect the language of this student question and translate to English if not already English.
